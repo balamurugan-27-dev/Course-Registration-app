@@ -1,0 +1,66 @@
+<htmL>
+    <head>
+        <style>
+            body{
+                background-color: bisque;
+                align-items: center;
+            }
+            input,select{
+                width: 90%;
+                padding: 9px;
+                margin: 9px;
+            }
+
+            button{
+                display: block;
+                justify-content:center ;
+                place-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>
+            REGISTER YOUR COURSE
+        </h2>
+        <label > Enter your name</label>
+        <input type="text" name="name" id="inname" >
+        <br>
+        <br>
+        <label>Enter your Email</label>
+        <input type="email" name="email" id="inemail">
+        <br>
+        <br>
+        <label>Enter your course</label>
+        <select name="course" id="incourse">
+            <option value="JAVA">JAVA</option>
+            <option value="PYTHON">PYTHON</option>
+            <option value="HTML,CSS,JS">HTML,CSS,JS</option>
+            </select>
+        <br>
+        <br>
+        <button onclick="submit()">
+            REGISTER
+        </button>
+        <p id="result"></p>
+        <script>
+            function submit(){
+                let data={
+                    name:document.getElementById("inname").value,
+                    email:document.getElementById("inemail").value,
+                    course:document.getElementById("incourse").value
+                };
+                let jsondata=JSON.stringify(data);
+
+                fetch("http://localhost:8080/course/register",{
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    body:jsondata
+                }).then(response=>response.text()).then(data=>{document.getElementById("result").innerText=data})
+                .catch(error=>console.error(error));
+            }
+        </script>
+    </body>
+
+</htmL>
