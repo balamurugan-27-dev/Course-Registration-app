@@ -3,6 +3,7 @@ package com.example.courseRegistration.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import com.example.courseRegistration.service.CourseService;
 
 @RestController
 @RequestMapping("/course")
+@CrossOrigin("http://localhost:5500")
 public class CourseController {
 	@Autowired
 	CourseService courseService;
@@ -31,8 +33,9 @@ public class CourseController {
 	}
 	
 	@PostMapping("/register")
-	public void register(@RequestBody CourseRegistry  courseRegister) {
+	public String  register(@RequestBody CourseRegistry  courseRegister) {
 		courseService.register(courseRegister);
+		return "submited successfully";
 		
 	}
 }

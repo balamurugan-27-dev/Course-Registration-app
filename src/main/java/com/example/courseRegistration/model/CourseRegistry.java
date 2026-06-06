@@ -41,7 +41,5 @@ public class CourseRegistry {
 	}
 	public void setCourse(String course) {
 		this.course = course;
-	}
-	
-
+	} 
 }
