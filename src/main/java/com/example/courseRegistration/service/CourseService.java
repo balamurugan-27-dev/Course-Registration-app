@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.courseRegistration.model.Course;
 import com.example.courseRegistration.model.CourseRegistry;
 import com.example.courseRegistration.repository.CourseRepo;
@@ -35,6 +34,15 @@ public class CourseService {
 	public void register(CourseRegistry coureseRegistry) {
 		
 		registryRepo.save(coureseRegistry);
+		
+	}
+	
+	public void deleteCourse(int id ) {
+		courseRepo.deleteById(id);
+	}
+
+	public void addCourse(Course course) {
+		courseRepo.save(course);
 		
 	}
 

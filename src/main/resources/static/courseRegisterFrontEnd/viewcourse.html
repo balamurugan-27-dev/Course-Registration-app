@@ -1,7 +1,33 @@
 <html>
     <head>
         <script type="text/javascript" src="myscript.js"></script>
+         <style>
+          body{
+                background-color: bisque;
+                align-items: center;
+                justify-content:center ;
+                place-items: center;    
+                text-align: center;
+            }
+            input,select{
+                width: 90%;
+                padding: 9px;
+                margin: 9px;
+            }
+
+            button:hover{
+                background-color: blue;
+            }
+
+            button{
+                background-color:burlywood;
+                color :black;
+                padding: 20px 20px;
+                border-radius: 10px;
+            }
+    </style>
     </head>
+    
     <body>
         <h2 align="center">
             AVAILABLE COURSES
@@ -15,6 +41,15 @@
             </tr>
             <tbody id="courseTable" align="center"></tbody>
         </table>
+        <br>
+        <a href="addcourse.html"><Button>ADD COURSE</button></a>
+        <h2>Click below button to  delete course</h2>
+        <lable> Enter course id to delete</lable>
+        <input type="number" name="id" id="inputid">
+        <br>
+
+        <p id="status"></p>
+        <button onclick="deleteCourse()">Delete confirm</button>
         <script  type="text/javascript">
             window.onload=function(){
                 showcourse();
