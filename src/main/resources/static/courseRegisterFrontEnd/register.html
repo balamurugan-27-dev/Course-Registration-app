@@ -173,7 +173,7 @@ function registerCourse(){
         course:document.getElementById("incourse").value
     };
 
-    fetch("http://localhost:8080/public/register",{
+    fetch("http://localhost:8080/user/register",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

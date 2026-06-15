@@ -10,6 +10,10 @@ import jakarta.persistence.Id;
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private  int id;
+	private String name;
+	private String password;
+	private String role;
 	public int getId() {
 		return id;
 	}
@@ -34,10 +38,5 @@ public class Users {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private  int id;
-	private String name;
-	private String password;
-	private String role;
+	
 }

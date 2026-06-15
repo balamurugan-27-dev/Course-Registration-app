@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add New Course</title>
-
-<script src="myscript.js"></script>
+<title>User Sign In</title>
 
 <style>
 
@@ -27,16 +25,17 @@ body{
 }
 
 .container{
-    width:500px;
+    width:400px;
     background:white;
     border-radius:20px;
-    padding:35px;
+    padding:40px;
     box-shadow:0 15px 40px rgba(0,0,0,0.25);
 }
 
 .logo{
     text-align:center;
     font-size:60px;
+    margin-bottom:10px;
 }
 
 h1{
@@ -65,7 +64,6 @@ input{
     border:1px solid #d1d5db;
     border-radius:10px;
     font-size:15px;
-    transition:0.3s;
 }
 
 input:focus{
@@ -80,7 +78,7 @@ button{
     padding:14px;
     border:none;
     border-radius:10px;
-    background:#22c55e;
+    background:#2563eb;
     color:white;
     font-size:16px;
     font-weight:bold;
@@ -89,93 +87,93 @@ button{
 }
 
 button:hover{
-    background:#16a34a;
-    transform:translateY(-2px);
+    background:#1d4ed8;
 }
 
 #status{
-    margin-top:20px;
+    margin-top:15px;
     text-align:center;
     font-weight:bold;
-    color:#16a34a;
 }
 
-.course-info{
-    margin-top:20px;
-    padding:15px;
-    border-radius:10px;
-    background:#eff6ff;
-    color:#1e3a8a;
-}
-
-.back-btn{
-    display:block;
+.footer{
     text-align:center;
-    text-decoration:none;
     margin-top:20px;
-    color:#2563eb;
-    font-weight:bold;
-}
-
-.back-btn:hover{
-    text-decoration:underline;
+    color:gray;
+    font-size:14px;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="logo">📚</div>
+    <div class="logo">🔐</div>
 
-    <h1>Add New Course</h1>
+    <h1>User Sign Up</h1>
 
     <p class="subtitle">
-        Create a new course for students
+        Balamurugan Course Registration System
     </p>
 
-    <label>Course Name</label>
+    <label>User Name</label>
     <input
         type="text"
-        id="inputCourseName"
-        placeholder="Enter course name">
+        id="username"
+        name="name"
+        placeholder="Enter username">
 
-    <label>Trainer Name</label>
+    <label>Password</label>
     <input
-        type="text"
-        id="inputTrainerName"
-        placeholder="Enter trainer name">
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter password">
 
-    <label>Duration (Weeks)</label>
-    <input
-        type="number"
-        id="inputDuration"
-        placeholder="Enter duration">
 
-    <button onclick="addCourse()">
-        ➕ Add Course
+    <button onclick="signup()">
+        Sign Up
     </button>
 
     <p id="status"></p>
 
-    <div class="course-info">
-        <strong>Example Courses</strong>
-        <br><br>
-        ☕ Java Programming 
-        <br>
-        🐍 Python Programming 
-        <br>
-        🌐 Full Stack Development 
+    <div class="footer">
+        Secure Login Portal
     </div>
 
-    <a href="viewcourse.html" class="back-btn">
-        ← Back to Course Management
-    </a>
-
 </div>
+
+<script>
+
+function signup(){
+
+    const data = {
+        name: document.getElementById("username").value,
+        password: document.getElementById("password").value
+    };
+
+    console.log(data);
+
+    // Add your fetch call here
+
+    
+    fetch("http://localhost:8080/public/userRegister",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+    })
+    .then(response=>response.text())
+    .then(result=>{
+        document.getElementById("status").innerText=result;
+    });
+
+}
+
+</script>
 
 </body>
 </html>

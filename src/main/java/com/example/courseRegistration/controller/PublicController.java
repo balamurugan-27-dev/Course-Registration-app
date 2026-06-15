@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.courseRegistration.model.CourseRegistry;
+import com.example.courseRegistration.model.Users;
 import com.example.courseRegistration.service.CourseService;
+import com.example.courseRegistration.service.UserService;
 
 @RestController
 @RequestMapping("/public")
@@ -15,11 +16,16 @@ public class PublicController {
 	
 	@Autowired
 	CourseService courseService;
+	@Autowired
+	UserService userService;
 	
-	@PostMapping("/register")
-	public String  register(@RequestBody CourseRegistry  courseRegister) {
-		courseService.register(courseRegister);
-		return "submited successfully";
-		
-	}
+	
+	
+	@PostMapping("userRegister")
+	public void signUp(@RequestBody Users user) {
+		userService.userSignup(user);
+		}
+	
+	
+	
 }
