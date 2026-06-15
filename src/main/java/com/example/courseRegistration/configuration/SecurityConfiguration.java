@@ -27,7 +27,6 @@ public class SecurityConfiguration {
 		.authorizeHttpRequests((response)->response
 			.requestMatchers("/admin/**").hasRole("ADMIN")
 			.requestMatchers("/user/**").hasAnyRole("USER","ADMIN")
-			.requestMatchers("/**").permitAll()
 			.requestMatchers("/public/**").permitAll()
 			.requestMatchers("/index.html").permitAll()
 			.anyRequest().authenticated())
