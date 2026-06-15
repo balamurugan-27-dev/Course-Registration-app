@@ -1,39 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="myscript.js"></script>
-    <style>
-          body{
-                background-color: bisque;
-                align-items: center;
-            }
-            input,select{
-                width: 90%;
-                padding: 9px;
-                margin: 9px;
-            }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            button{
-                display: block;
-                justify-content:center ;
-                place-items: center;
-            }
-    </style>
+<title>Add New Course</title>
+
+<script src="myscript.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    padding:20px;
+}
+
+.container{
+    width:500px;
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+.logo{
+    text-align:center;
+    font-size:60px;
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:gray;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#374151;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,0.3);
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#16a34a;
+    transform:translateY(-2px);
+}
+
+#status{
+    margin-top:20px;
+    text-align:center;
+    font-weight:bold;
+    color:#16a34a;
+}
+
+.course-info{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#eff6ff;
+    color:#1e3a8a;
+}
+
+.back-btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    margin-top:20px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.back-btn:hover{
+    text-decoration:underline;
+}
+
+</style>
+
 </head>
-<body>
-      <h1>ADD YOUR NEW COURSE</h1>
-      <label>Course Name</label>
-      <input type="text" name="CourseName" id="inputCourseName">
-      <br>
-      <label>Trainer Name</label>
-      <input type="text" name="Trainer" id="inputTrainerName">
-      <br>
-      <label>Duration In Weeks</label>
-      <input type="text" name="durationInWeek" id="inputDuration">
-      <br>
-      <button onclick="addCourse()">ADD</button>
 
-      <p id="status"></p>
-     
+<body>
+
+<div class="container">
+
+    <div class="logo">📚</div>
+
+    <h1>Add New Course</h1>
+
+    <p class="subtitle">
+        Create a new course for students
+    </p>
+
+    <label>Course Name</label>
+    <input
+        type="text"
+        id="inputCourseName"
+        placeholder="Enter course name">
+
+    <label>Trainer Name</label>
+    <input
+        type="text"
+        id="inputTrainerName"
+        placeholder="Enter trainer name">
+
+    <label>Duration (Weeks)</label>
+    <input
+        type="number"
+        id="inputDuration"
+        placeholder="Enter duration">
+
+    <button onclick="addCourse()">
+        ➕ Add Course
+    </button>
+
+    <p id="status"></p>
+
+    <div class="course-info">
+        <strong>Example Courses</strong>
+        <br><br>
+        ☕ Java Programming 
+        <br>
+        🐍 Python Programming 
+        <br>
+        🌐 Full Stack Development 
+    </div>
+
+    <a href="course.html" class="back-btn">
+        ← Back to Course Management
+    </a>
+
+</div>
+
 </body>
 </html>

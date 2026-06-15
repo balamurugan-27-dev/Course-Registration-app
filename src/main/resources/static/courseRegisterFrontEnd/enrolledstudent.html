@@ -1,26 +1,161 @@
-<html>
-    <head>
-        <script src="myscript.js"></script>
-    </head>
-    <body>
-        <h2 align="center" >ENROLLED STUDENTS</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <table border="3" align="center" id="enrolledtable" style="text-align:center;">
-            <tr>
-            <th width="100">ID</th>
-            <th width="150">Name</th>
-            <th width="150">EMAIL</th>
-            <th width="150">COURSE</th>
-            <tr>
-                
-            <tbody align="center"></tbody>
+<title>Enrolled Students</title>
 
+<script src="myscript.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:40px;
+}
+
+.header p{
+    color:#dbeafe;
+    margin-top:10px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#2563eb;
+    color:white;
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+}
+
+tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+tbody tr:hover{
+    background:#dbeafe;
+}
+
+.stats{
+    display:flex;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.stat-card{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.stat-card h3{
+    color:#2563eb;
+    font-size:30px;
+}
+
+.stat-card p{
+    color:gray;
+}
+
+.footer{
+    text-align:center;
+    color:white;
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>👨‍🎓 Enrolled Students</h1>
+        <p>Balamurugan Course Registration System</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <h3><span id="studentCount">0</span></h3>
+            <p>Total Students</p>
+        </div>
+    </div>
+
+    <div class="card">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+
+            <tbody id="enrolledtable">
+            </tbody>
 
         </table>
-        <script>
-            window.onload=function(){
-                Showstudent();
-            }
-        </script>
-    </body>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Balamurugan Course Registration System
+    </div>
+
+</div>
+
+<script>
+
+window.onload = function(){
+    Showstudent();
+};
+
+</script>
+
+</body>
 </html>

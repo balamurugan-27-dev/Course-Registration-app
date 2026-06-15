@@ -1,59 +1,228 @@
-<html>
-    <head>
-        <script type="text/javascript" src="myscript.js"></script>
-         <style>
-          body{
-                background-color: bisque;
-                align-items: center;
-                justify-content:center ;
-                place-items: center;    
-                text-align: center;
-            }
-            input,select{
-                width: 90%;
-                padding: 9px;
-                margin: 9px;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            button:hover{
-                background-color: blue;
-            }
+<title>Course Management</title>
 
-            button{
-                background-color:burlywood;
-                color :black;
-                padding: 20px 20px;
-                border-radius: 10px;
-            }
-    </style>
-    </head>
-    
-    <body>
-        <h2 align="center">
-            AVAILABLE COURSES
-        </h2>
-        <table border="2" align="center" id="courseTable" style="color: black; background-color: aqua; ">
-            <tr>
-                <th width="100">id</th>
-                <th width="150">name</th>
-                <th width="150">trainer</th>
-                <th width="150">durtaion in weeks</th>
-            </tr>
-            <tbody id="courseTable" align="center"></tbody>
+<script src="myscript.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:40px;
+}
+
+.header p{
+    color:#dbeafe;
+    margin-top:10px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    margin-bottom:25px;
+}
+
+.card h2{
+    color:#1e3a8a;
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+thead{
+    background:#2563eb;
+    color:white;
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+}
+
+tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+tbody tr:hover{
+    background:#dbeafe;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    text-decoration:none;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-add{
+    background:#22c55e;
+    color:white;
+}
+
+.btn-add:hover{
+    background:#16a34a;
+    transform:translateY(-2px);
+}
+
+.btn-delete{
+    background:#ef4444;
+    color:white;
+    margin-top:15px;
+}
+
+.btn-delete:hover{
+    background:#dc2626;
+}
+
+.delete-box{
+    max-width:500px;
+}
+
+label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,0.3);
+}
+
+#status{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.footer{
+    text-align:center;
+    color:white;
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🎓 Course Management Dashboard</h1>
+        <p>Balamurugan Course Registration System</p>
+    </div>
+
+    <!-- Course Table -->
+    <div class="card">
+
+        <h2>📚 Available Courses</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Trainer</th>
+                    <th>Duration (Weeks)</th>
+                </tr>
+            </thead>
+
+            <tbody id="courseTable">
+            </tbody>
+
         </table>
+
         <br>
-        <a href="addcourse.html"><Button>ADD COURSE</button></a>
-        <h2>Click below button to  delete course</h2>
-        <lable> Enter course id to delete</lable>
-        <input type="number" name="id" id="inputid">
-        <br>
+
+        <a href="addcourse.html" class="btn btn-add">
+            ➕ Add New Course
+        </a>
+
+    </div>
+
+    <!-- Delete Course -->
+    <div class="card delete-box">
+
+        <h2>🗑 Delete Course</h2>
+
+        <label>Enter Course ID</label>
+
+        <input
+            type="number"
+            id="inputid"
+            placeholder="Enter course ID">
+
+        <button
+            class="btn btn-delete"
+            onclick="deleteCourse()">
+            Delete Course
+        </button>
 
         <p id="status"></p>
-        <button onclick="deleteCourse()">Delete confirm</button>
-        <script  type="text/javascript">
-            window.onload=function(){
-                showcourse();
-            }
-        </script>
-    </body>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Balamurugan Course Registration System
+    </div>
+
+</div>
+
+<script>
+
+window.onload=function(){
+    showcourse();
+}
+
+</script>
+
+</body>
 </html>

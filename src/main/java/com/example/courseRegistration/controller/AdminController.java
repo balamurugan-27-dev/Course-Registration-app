@@ -17,7 +17,7 @@ public class AdminController {
 	@Autowired
 	CourseService courseService;
 	
-	@DeleteMapping("/admin/deletecourse")
+	@DeleteMapping("/deletecourse")
 	public String deleteCourse(@RequestParam ("id") int id) {
 		courseService.deleteCourse(id);
 		return"delete successfull";

@@ -19,6 +19,9 @@ function showcourse(){
 function Showstudent(){
     fetch("http://localhost:8080/user/enrolled").then((response)=>response.json())
     .then((students)=>{
+
+        document.getElementById("studentCount").innerText = students.length;
+
         const studentData=document.getElementById("enrolledtable");
         students.forEach(element=>{
             var row=`<tr>
